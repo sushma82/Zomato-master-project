@@ -42,3 +42,6 @@ Router.get("/image/:_id", async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 });
+
+
+export default Router;
