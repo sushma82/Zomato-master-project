@@ -1,6 +1,5 @@
 function App() {
-  return 
-    <div className="App"></div>;
+  return <h1>Hello tailwind</h1>;
 }
 
 export default App;
