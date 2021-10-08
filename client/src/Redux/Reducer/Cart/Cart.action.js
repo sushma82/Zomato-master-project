@@ -44,7 +44,8 @@ export const addCart = (newFood) => async (dispatch) => {
 };
 
 export const DeleteCart = (foodID) => async (dispatch) => {
-  try {
+    console.log({ foodID });
+    try {
     let cartData = { cart: [] };
 
     if (localStorage.zomatoCart) {
