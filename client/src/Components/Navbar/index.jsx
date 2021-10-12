@@ -10,7 +10,6 @@ import gravatar from "gravatar";
 import SignIn from "../Auth/SignIn";
 import SignUp from "../Auth/SignUp";
 
-
 // redux actions
 import { signOut } from "../../Redux/Reducer/Auth/Auth.action";
 
@@ -21,7 +20,7 @@ const MobileNav = ({ SignIn, SignUp }) => {
   const reduxState = useSelector((global) => global.user.user);
 
   const signOutHandler = () => dispatch(signOut());
-  
+
   return (
     <div className="flex w-full items-center justify-between lg:hidden">
       <div className="w-28">
@@ -50,7 +49,7 @@ const MobileNav = ({ SignIn, SignUp }) => {
             </div>
             {isDropDownOpen && (
               <div className="absolute shadow-lg py-3 -bottom-20 -right-4 w-full bg-white z-20 flex flex-col gap-2">
-                  <button onClick={signOutHandler}>Sign Out</button>
+                <button onClick={signOutHandler}>Sign Out</button>
               </div>
             )}
           </>
@@ -77,15 +76,13 @@ const MobileNav = ({ SignIn, SignUp }) => {
 
 const LargeNav = ({ SignIn, SignUp }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-
   const dispatch = useDispatch();
   const reduxState = useSelector((global) => global.user.user);
-
   const signOutHandler = () => dispatch(signOut());
 
   return (
     <>
-    <div className="hidden lg:inline container px-20 mx-auto">
+      <div className="hidden lg:inline container px-20 mx-auto">
         <div className="hidden gap-4 w-full items-center justify-around lg:flex ">
           <div className="w-28">
             <img
@@ -115,7 +112,7 @@ const LargeNav = ({ SignIn, SignUp }) => {
               />
             </div>
           </div>
-           {reduxState?.user?.fullname ? (
+          {reduxState?.user?.fullname ? (
             <div className="relative w-20">
               {" "}
               <div
@@ -130,7 +127,7 @@ const LargeNav = ({ SignIn, SignUp }) => {
               </div>
               {isDropDownOpen && (
                 <div className="absolute shadow-lg py-3  -right-4 w-full bg-white z-30 flex flex-col gap-2">
-                    <button onClick={signOutHandler}>Sign Out</button>
+                  <button onClick={signOutHandler}>Sign Out</button>
                 </div>
               )}
             </div>
@@ -164,12 +161,11 @@ const Navbar = () => {
   const openSignUpmodal = () => setOpenSignup(true);
   return (
     <>
-
-<SignIn isOpen={openSignin} setIsOpen={setOpenSignin} />
+      <SignIn isOpen={openSignin} setIsOpen={setOpenSignin} />
       <SignUp isOpen={openSignup} setIsOpen={setOpenSignup} />
 
-<nav className="p-4 flex bg-white shadow-md lg:shadow-none w-full items-center">
-<MobileNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
+      <nav className="p-4 flex bg-white shadow-md lg:shadow-none w-full items-center">
+        <MobileNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
         <LargeNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
       </nav>
     </>

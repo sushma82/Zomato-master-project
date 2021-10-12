@@ -47,7 +47,6 @@ const NutritionCarousal = () => {
     prevArrow: <PrevArrow />,
   };
   return (
-    
     <>
       <div className="lg:hidden flex gap-3 lg:gap-0 flex-wrap justify-between">
         {categories.map((food) => (
@@ -65,3 +64,5 @@ const NutritionCarousal = () => {
     </>
   );
 };
+
+export default NutritionCarousal;

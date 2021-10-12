@@ -15,7 +15,6 @@ const Brand = (props) => {
     "https://b.zmtcdn.com/data/brand_creatives/logos/80c09d718acddee05a655eb378bb442f_1617875125.png?output-format=webp",
   ];
   const settings = {
-
     arrows: true,
     infinite: true,
     speed: 500,
@@ -23,18 +22,17 @@ const Brand = (props) => {
     slidesToScroll: 1,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    
   };
   return (
     <div className="my-5 mb-32">
       <Slider {...settings}>
         {logos.map((logo) => (
-           <div className="w-32 h-48 mx-10 bg-white shadow">
-           <img
-             src={logo}
-             alt="brand"
-             className="w-full h-full object-cover"
-           />
+          <div className="w-32 h-48 mx-10 bg-white shadow">
+            <img
+              src={logo}
+              alt="brand"
+              className="w-full h-full object-cover"
+            />
           </div>
         ))}
       </Slider>

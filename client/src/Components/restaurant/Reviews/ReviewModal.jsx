@@ -58,7 +58,6 @@ export default function ReviewModal({ isOpen, setIsOpen, ...props }) {
     });
     closeModal();
   };
-
   return (
     <>
       <Transition appear show={isOpen} as={Fragment}>
@@ -106,7 +105,7 @@ export default function ReviewModal({ isOpen, setIsOpen, ...props }) {
                 <div className="mt-2 flex flex-col gap-4">
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-2">
-                    <input
+                      <input
                         type="radio"
                         name="review"
                         id="dining"
@@ -116,7 +115,7 @@ export default function ReviewModal({ isOpen, setIsOpen, ...props }) {
                       <label htmlFor="dining">Dining</label>
                     </div>
                     <div className="flex items-center gap-2">
-                    <input
+                      <input
                         type="radio"
                         name="review"
                         id="delivery"

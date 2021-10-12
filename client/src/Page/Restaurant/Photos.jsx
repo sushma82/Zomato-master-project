@@ -4,16 +4,14 @@ import ImageViewer from "react-simple-image-viewer";
 
 // components
 import PhotoCollection from "../../Components/restaurant/PhotosCollection";
-
 // redux actions
 import { getImage } from "../../Redux/Reducer/Image/Image.action";
 
 const Photos = () => {
-  const [photos, setPhotos] = useState([]); 
+  const [photos, setPhotos] = useState([]);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [CurrentImg, setCurrentImg] = useState(0);
 
-  
   const reduxState = useSelector(
     (globalStore) => globalStore.restaurant.selectedRestaurant.restaurant
   );
@@ -28,7 +26,6 @@ const Photos = () => {
       });
     }
   }, []);
-  
   const closeViewer = () => setIsMenuOpen(false);
 
   const openViewer = () => setIsMenuOpen(true);

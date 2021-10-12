@@ -9,6 +9,7 @@ export const getRestaurant = () => async (dispatch) => {
       method: "GET",
       url: "http://localhost:4000/restaurant/?city=Bangalore",
     });
+
     return dispatch({ type: GET_RESTAURANT, payload: restaurantList.data });
   } catch (error) {
     return dispatch({ type: "ERROR", payload: error });

@@ -13,13 +13,10 @@ import RestaurantInfo from "../Components/restaurant/RestaurantInfo";
 import TabContainer from "../Components/restaurant/Tabs";
 import CartContainer from "../Components/Cart/CartContainer";
 
-
 // Redux actions
 import { getSpecificRestaurant } from "../Redux/Reducer/restaurant/restaurant.action";
 import { getImage } from "../Redux/Reducer/Image/Image.action";
-
 import { getCart } from "../Redux/Reducer/Cart/Cart.action";
-
 const RestaurantLayout = (props) => {
   const [restaurant, setRestaurant] = useState({
     images: [],
@@ -41,6 +38,7 @@ const RestaurantLayout = (props) => {
         setRestaurant((prev) => ({ ...prev, ...data.payload.image }))
       );
     });
+
     dispatch(getCart());
   }, []);
 
@@ -49,10 +47,9 @@ const RestaurantLayout = (props) => {
       {" "}
       <RestaurantNavbar />
       <div className="container mx-auto px-4 lg:px-20 pb-10 ">
-      <ImageGrid images={restaurant.images} />
-
+        <ImageGrid images={restaurant.images} />
         <RestaurantInfo
-           name={restaurant?.name}
+          name={restaurant?.name}
           restaurantRating={restaurant?.rating || 0}
           deliveryRating={restaurant?.rating || 0}
           cuisine={restaurant?.cuising}
@@ -81,4 +78,5 @@ const RestaurantLayout = (props) => {
     </>
   );
 };
+
 export default RestaurantLayout;

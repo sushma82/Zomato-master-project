@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
-
 // components
 import DeliveryCarousal from "./DeliveryCarousal";
 import Brand from "./Brand";
@@ -17,6 +16,7 @@ const Delivery = () => {
   useEffect(() => {
     reduxState.restaurants && setRestaurantList(reduxState.restaurants);
   }, [reduxState.restaurants]);
+
   return (
     <>
       <DeliveryCarousal />
@@ -26,7 +26,7 @@ const Delivery = () => {
       </h1>
       <div className="flex justify-between flex-wrap">
         {restaurantList.map((restaurant) => (
-            <RestaurantCard
+          <RestaurantCard
             {...restaurant}
             key={restaurant._id}
             whereIsthisres="asf"

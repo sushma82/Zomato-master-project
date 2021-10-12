@@ -154,11 +154,11 @@ const Navbar = () => {
   const openSignUpmodal = () => setOpenSignup(true);
   return (
     <>
-     {" "}
+      {" "}
       <SignIn isOpen={openSignin} setIsOpen={setOpenSignin} />
       <SignUp isOpen={openSignup} setIsOpen={setOpenSignup} />
       <nav className="p-4 flex bg-white shadow-md lg:shadow-none w-full items-center">
-      <MobileNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
+        <MobileNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
         <LargeNav SignIn={openSignInmodal} SignUp={openSignUpmodal} />
       </nav>
     </>

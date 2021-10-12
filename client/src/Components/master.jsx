@@ -9,7 +9,6 @@ import Nutrition from "./Nutrition";
 
 const Master = () => {
   const { type } = useParams();
-
   return (
     <div className="my-5">
       {type === "delivery" && <Delivery />}

@@ -6,7 +6,6 @@ import React, { useEffect } from "react";
 // HOC
 import HomeLayoutHOC from "./HOC/Home.Hoc";
 import RestaurantLayoutHOC from "./HOC/Restaurant.HOC";
-
 import CheckoutLayoutHOC from "./HOC/Checkout.Hoc";
 
 // pages
@@ -29,7 +28,6 @@ if (localStorage.zomatoUser) {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 }
 
-
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -44,9 +42,8 @@ function App() {
       <Route path="/restaurant/:id" exact component={RedirectRestaurant} />
 
       <HomeLayoutHOC path="/:type" exact component={Home} />
-      
-      <HomeLayoutHOC path="/google/:token" exact component={GoogleAuth} />
 
+      <HomeLayoutHOC path="/google/:token" exact component={GoogleAuth} />
       <RestaurantLayoutHOC
         path="/restaurant/:id/overview"
         exact
@@ -68,7 +65,7 @@ function App() {
         exact
         component={Photos}
       />
-       <CheckoutLayoutHOC path="/checkout/orders" exact component={Checkout} />
+      <CheckoutLayoutHOC path="/checkout/orders" exact component={Checkout} />
     </>
   );
 }

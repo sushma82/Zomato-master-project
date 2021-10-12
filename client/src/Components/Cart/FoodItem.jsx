@@ -7,7 +7,6 @@ import {
   IncQty,
   DecQty,
 } from "../../Redux/Reducer/Cart/Cart.action";
-
 const FoodItem = (props) => {
   const dispatch = useDispatch();
   const deleteFoodFromCart = () => dispatch(DeleteCart(props._id));
@@ -17,6 +16,7 @@ const FoodItem = (props) => {
     if (props.quantity === 1) return;
     dispatch(DecQty(props._id));
   };
+
   return (
     <>
       <div className="flex items-center justify-between">

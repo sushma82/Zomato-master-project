@@ -18,9 +18,8 @@ import { getReviews } from "../../Redux/Reducer/Reviews/review.action";
 const Overview = () => {
   const [menuImage, setMenuImages] = useState({ images: [] });
   const [Reviews, setReviewss] = useState([]);
-  
+
   const { id } = useParams();
-  
 
   const settings = {
     dots: true,
@@ -77,7 +76,6 @@ const Overview = () => {
     }
   }, []);
 
-
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
@@ -102,15 +100,15 @@ const Overview = () => {
             </Link>
           </div>
           <div className="flex flex-wrap gap-3 my-4">
-              <MenuCollection menuTitle="Menu" pages="3" image={menuImage} />
+            <MenuCollection menuTitle="Menu" pages="3" image={menuImage} />
           </div>
           <h4 className="text-lg font-medium my-4">Cuisines</h4>
           <div className="flex flex-wrap gap-2">
-          {reduxState?.cuisine.map((data) => (
+            {reduxState?.cuisine.map((data) => (
               <span className="border border-gray-600 text-blue-600 px-2 py-1 rounded-full">
                 {data}
               </span>
-            ))} 
+            ))}
           </div>
           <div className="my-4">
             <h4 className="text-lg font-medium">Average Cost</h4>
@@ -167,8 +165,8 @@ const Overview = () => {
               mapLocation={getLatLong(reduxState?.mapLocation)}
               address={reduxState?.address}
             />
-          
           </div>
+
           <div className="my-4 flex flex-col gap-4"></div>
         </div>
         <aside
@@ -186,4 +184,5 @@ const Overview = () => {
     </>
   );
 };
+
 export default Overview;

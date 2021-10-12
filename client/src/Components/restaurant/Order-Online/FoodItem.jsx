@@ -4,9 +4,7 @@ import ReactStars from "react-rating-stars-component";
 import { AiOutlinePlus } from "react-icons/ai";
 import { getFood } from "../../../Redux/Reducer/Food/Food.action";
 import { getImage } from "../../../Redux/Reducer/Image/Image.action";
-
 import { addCart } from "../../../Redux/Reducer/Cart/Cart.action";
-
 const FoodItem = (props) => {
   const [food, setFood] = useState({});
 
@@ -28,10 +26,9 @@ const FoodItem = (props) => {
     setFood((prev) => ({ ...prev, isAddedToCart: true }));
   };
 
-
   return (
     <>
-       {food?.name && (
+      {food?.name && (
         <div className="flex items-start gap-2 ">
           {food?.image && (
             <div className="w-3/12 h-24 md:h-28 lg:h-36  md:px-3">
@@ -64,7 +61,7 @@ const FoodItem = (props) => {
             <p className="truncate">{food?.descript}</p>
           </div>
           <div className="hidden md:block w-2/12	">
-          <button
+            <button
               onClick={addFoodToCart}
               disabled={food.isAddedToCart}
               className=" flex items-center gap-2 text-zomato-400 bg-zomato-50 border border-zomato-400 px-4 py-2 rounded-lg"
@@ -78,9 +75,8 @@ const FoodItem = (props) => {
               )}
             </button>
           </div>
-          
         </div>
-     )}
+      )}
     </>
   );
 };

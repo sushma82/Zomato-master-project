@@ -14,8 +14,7 @@ export const signIn = (userData) => async (dispatch) => {
       data: { credentials: userData },
     });
 
-    // redux actions
-import { getMyself } from "../User/user.action";
+    getMyself();
 
     localStorage.setItem(
       "zomatoUser",
@@ -27,31 +26,29 @@ import { getMyself } from "../User/user.action";
     return dispatch({ type: "ERROR", payload: error });
   }
 };
-
 export const googleAuth = (token) => async (dispatch) => {
-    try {
-      localStorage.setItem("zomatoUser", JSON.stringify({ token }));
-  
-      getMyself();
-  
-      return dispatch({ type: GOOGLE_AUTH, payload: {} });
-    } catch (error) {
-      return dispatch({ type: "ERROR", payload: error });
-    }
-  };
-  
-  export const signOut = () => async (dispatch) => {
-    try {
-      localStorage.removeItem("zomatoUser");
-      clearUser();
-      window.location.href = "http://localhost:3000/delivery";
-  
-      return dispatch({ type: SIGN_OUT, payload: {} });
-    } catch (error) {
-      return dispatch({ type: "ERROR", payload: error });
-    }
-  };
+  try {
+    localStorage.setItem("zomatoUser", JSON.stringify({ token }));
 
+    getMyself();
+
+    return dispatch({ type: GOOGLE_AUTH, payload: {} });
+  } catch (error) {
+    return dispatch({ type: "ERROR", payload: error });
+  }
+};
+
+export const signOut = () => async (dispatch) => {
+  try {
+    localStorage.removeItem("zomatoUser");
+    clearUser();
+    window.location.href = "http://localhost:3000/delivery";
+    
+    return dispatch({ type: SIGN_OUT, payload: {} });
+  } catch (error) {
+    return dispatch({ type: "ERROR", payload: error });
+  }
+};
 
 export const signUp = (userData) => async (dispatch) => {
   try {
@@ -60,9 +57,8 @@ export const signUp = (userData) => async (dispatch) => {
       url: `http://localhost:4000/auth/signup`,
       data: { credentials: userData },
     });
-    
-    getMyself();
 
+    getMyself();
 
     localStorage.setItem(
       "zomatoUser",

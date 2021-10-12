@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import ImageViewer from "react-simple-image-viewer";
 
 const MenuCollection = (props) => {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [CurrentImg, setCurrentImg] = useState(0);
   const closeViewer = () => setIsMenuOpen(false);
   const openViewer = () => setIsMenuOpen(true);
 
   return (
     <>
-     {isMenuOpen && (
+      {isMenuOpen && (
         <ImageViewer
           src={props.image}
           currentIndex={CurrentImg}

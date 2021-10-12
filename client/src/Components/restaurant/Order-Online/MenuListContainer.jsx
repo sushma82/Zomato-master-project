@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import MenuCategory from "./MenuCategory";
 
 const MenuListContainer = (props) => {
-  
   return (
     <>
       <div className="w-full flex flex-col gap-3">
