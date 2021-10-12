@@ -12,7 +12,6 @@ import {
 } from "../../validation/restaurant";
 import { ValidateRestaurantId } from "../../validation/food";
 
-
 const Router = express.Router();
 
 /*
@@ -79,6 +78,19 @@ Router.get("/search", async (req, res) => {
         .json({ error: `No Restaurant matched with ${searchString}` });
 
     return res.json({ restaurants });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+
+// @Route   POST /restaurant/new
+// @des     add new restaurant
+// @access  PRIVATE
+Router.post("/new", passport.authenticate("jwt"), async (req, res) => {
+  try {
+    const newRestaurant = await RestaurantModel.create(req.body.restaurantData);
+    return res.json({ restaurants: newRestaurant });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }

@@ -43,5 +43,56 @@ Router.get("/image/:_id", async (req, res) => {
   }
 });
 
+// @Route   POST /menu/new
+// @des     add new menu
+// @access  PUBLIC
+Router.post("/new", async (req, res) => {
+  try {
+    const { menuData } = req.body;
+
+    if (menuData._id) {
+      const updateMenu = await MenuModel.findByIdAndUpdate(
+        menuData._id,
+        {
+          $push: {
+            menus: { $each: menuData.menus },
+          },
+        },
+        { new: true }
+      );
+
+      return res.json({ menu: updateMenu });
+    }
+
+    const createNewMenu = await MenuModel.create(menuData);
+
+    return res.json({ menu: createNewMenu });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
+
+// @Route   POST menu/recommendation/new
+// @des     add new recommendation
+// @access  PUBLIC
+Router.post("/recommendation/new", async (req, res) => {
+  try {
+    const { menuData } = req.body;
+
+    const updateMenu = await MenuModel.findByIdAndUpdate(
+      menuData._id,
+      {
+        $push: {
+          recommended: { $each: menuData.recommended },
+        },
+      },
+      { new: true }
+    );
+
+    return res.json({ menu: updateMenu });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+});
 
 export default Router;

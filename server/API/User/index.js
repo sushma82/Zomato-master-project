@@ -26,7 +26,6 @@ Router.get("/", passport.authenticate("jwt"), async (req, res) => {
   }
 });
 
-
 /*
 Route     /:_id
 Des       Get user data
